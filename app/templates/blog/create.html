@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="row p-3">
+
+
+
+        <div class="text-center rounded border border border-primary p-3">
+
+            <form method="post">
+
+                <div class="form-floating mb-3">
+                    <input class="form-control" name="title" id="title" value="{{ request.form['title'] }}">
+                    <label for="title">标题</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea  class="form-control"name="body" id="body" style="height: 250px" >{{ request.form['body'] }}</textarea>
+                    <label for="body">输入内容</label>
+                </div>
+                {% for message in get_flashed_messages() %}
+                    <div class="flash alert-danger">{{ message }}</div>
+                {% endfor %}
+                <button class="mt-4 w-50 btn btn-primary" type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

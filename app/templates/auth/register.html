@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <div class="row p-3">
+
+        <div class="col-3 "></div>
+        <div class="col-6 ">
+
+            <div class="text-center rounded border border border-primary p-3">
+
+                <form method="post">
+                    <h1 class="mb-3 h6 fw-normal">请注册</h1>
+                    <div class="form-floating ">
+                        <input name="username" class="form-control"
+                               id="username" placeholder="用户名" >
+                        <label for="username">用户名</label>
+                    </div>
+                    <div class="form-floating ">
+                        <input name="password" class="form-control" type="password"
+                               id="password" placeholder="密码" >
+                        <label for="password">密码</label>
+                    </div>
+                    {% for message in get_flashed_messages() %}
+                    <div class="flash alert-danger">{{ message }}</div>
+                    {% endfor %}
+                    <button class="mt-4 w-50 btn btn-primary" type="submit">注册</button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="col-3 "></div>
+    </div>
+
+
+{% endblock %}
