@@ -49,6 +49,47 @@ def create():
     return render_template('blog/create.html')
 
 
+@bp.route('/<int:id>/update', methods =('GET', 'POST'))
+@login_required
+def update(id):
+    post = get_post(id)
+    if request.method == "POST":
+        title = request.form['title']
+        body = request.form['body']
+        error = None
+
+        if title is None:
+            error = "请输入标题"
+        elif body is None:
+            error = "请输入内容"
+
+        if error is not None:
+            flash(error)
+        else:
+            db = get_db()
+            db.execute(
+                'UPDATE post SET title = ?, body = ?'
+                ' WHERE id = ?',
+                (title, body, id)
+            )
+            db.commit()
+            return redirect(url_for('blog.index'))
+
+    return render_template('blog/update.html', post=post)
+
+'''
+删除post
+'''
+
+@bp.route('/<int:id>/delete', methods =('GET', 'POST'))
+@login_required
+def delete(id):
+    get_post(id)
+    db = get_db()
+    db.execute('DELETE FROM post WHERE id = ?', (id,))
+    db.commit()
+    return redirect(url_for('blog.index'))
+
 '''
 通过post.id来获取post
 '''

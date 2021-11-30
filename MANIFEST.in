@@ -1,0 +1,4 @@
+include pandaWeb/schema.sql
+graft pandaWeb/static
+graft pandaWeb/templates
+global-exclude *.pyc
