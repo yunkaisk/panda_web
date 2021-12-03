@@ -19,29 +19,29 @@
 
 <div class="container">
     <!-- Content here -->
-    <div class=" row  bg-dark p-3">
+    <div class=" row  bg-warning p-3  bg-opacity-50" >
 
         <div class="col-4 p-3">
         <div class="position-relative">
                 <div class="position-absolute top-50 start-0 ">
                     {% if g.user %}
-                        <a class="btn btn-sm btn-outline-light " href="{{ url_for('blog.create') }}">写</a>
+                        <a class="btn btn-sm btn-outline-dark " href="{{ url_for('blog.create') }}">写</a>
                     {% endif %}
                 </div>
         </div>
         </div>
         <div class="col-4 text-center">
-            <h1 class="blog-header-logo text-white" href="hellobootstrap.html">PANDA</h1>
+            <h1 class="blog-header-logo text-dark" href="hellobootstrap.html" >PANDA</h1>
         </div>
 
         <div class="col-4 p-3 ">
             <div class="position-relative">
                 <div class="position-absolute top-50 end-0 ">
-                    <a class="btn btn-sm btn-outline-dark " href="{{ url_for('auth.register') }}">注册</a>
+                       <a class="btn btn-sm btn-outline-warning" href="{{ url_for('auth.register') }}">注册</a>
                     {% if g.user %}
-                        <a class="btn btn-sm btn-outline-light " href="{{ url_for('auth.logout') }}">登出</a>
+                        <a class="btn btn-sm btn-outline-dark " href="{{ url_for('auth.logout') }}">登出</a>
                     {% else %}
-                        <a class="btn btn-sm btn-outline-light " href="{{ url_for('auth.login') }}">登录</a>
+                        <a class="btn btn-sm btn-outline-dark " href="{{ url_for('auth.login') }}">登录</a>
 
                     {% endif %}
                 </div>
@@ -53,22 +53,22 @@
 
     </div>
     <div class="row border " >
-        <div class="col-3 bg-light" style="height:0px; padding-bottom:100%">
+        <div class="col-3 bg-secondary bg-opacity-25" style="height:0px; padding-bottom:100%">
 
             <div class="p-3">
                 <div class="text-center">
                     <img src="{{ url_for('static', filename='img/头像.jpg') }}" class="img-fluid rounded-3" alt="...">
                 </div>
             </div>
-            <div>
-                <p class="text-center">大熊猫和小熊猫</p>
-                <p class="text-center">bilibili:小大熊猫_</p>
-                <p class="text-center">github:sk</p>
+            <div class="ps-3">
+                
+                <p class="">bilibili:小大熊猫_</p>
+                <p class="">github:sk</p>
 
 
             </div>
         </div>
-        <div class="col-9 " style="height:0px; padding-bottom:100%">
+        <div class="col-9 bg-light bg-opacity-50" style="height:0px; padding-bottom:100%">
             {% block content %}{% endblock %}
         </div>
     </div>

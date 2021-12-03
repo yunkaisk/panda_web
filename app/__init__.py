@@ -12,7 +12,8 @@ from flask import Flask
 
 
 def create_app(test_config=None):
-    # create and configure the app
+    '''创建和配置app'''
+
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
@@ -32,11 +33,11 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # set the database config
+    # 设置数据库
     from . import db
     db.init_app(app)
 
-    # load and set the blueprint
+    # 加载蓝图
 
     from . import auth
     app.register_blueprint(auth.bp)
@@ -45,9 +46,5 @@ def create_app(test_config=None):
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
 
     return app

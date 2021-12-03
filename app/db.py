@@ -5,6 +5,11 @@ app/db.py
 author:sk
 """
 
+"""
+app/__init__.py
+-数据库操作
+"""
+
 import sqlite3
 
 import click

@@ -16,7 +16,11 @@
                     <label for="title">标题</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <textarea  class="form-control"name="body" id="body" style="height: 250px" >{{ request.form['body'] or post['title'] }}</textarea>
+                    <textarea  class="form-control"name="abstract" id="abstract" style="height: 150px" >{{ request.form['abstract'] or post['abstract']}}</textarea>
+                    <label for="body">简介</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea  class="form-control"name="body" id="body" style="height: 250px" >{{ request.form['body'] or post['body'] }}</textarea>
                     <label for="body">输入内容</label>
                 </div>
                 {% for message in get_flashed_messages() %}
